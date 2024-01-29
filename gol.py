@@ -1,11 +1,12 @@
 import random
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 
 def create_board(width, height):
     return [[random.choice([0, 1]) for _ in range(width)] for _ in range(height)]
 
 def print_board(board):
-    plt.imshow(board, cmap='binary')
+    plt.imshow(board, cmap=cm.Blues, alpha=0.5)
 
 def get_neighbour_count(board, x, y):
     count = 0
