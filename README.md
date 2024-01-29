@@ -27,3 +27,6 @@ You can customize the board size and the number of generations by changing the p
 
 ## Example
 game_of_life(20, 20, 50) # Runs a 50-generation simulation on a 20x20 board with random initialization.
+
+# Colors
+The colors are nicely adjusted, the living beings are "blue" like suggested
