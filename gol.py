@@ -1,13 +1,11 @@
 import random
-import time
-import os
+import matplotlib.pyplot as plt
 
 def create_board(width, height):
     return [[random.choice([0, 1]) for _ in range(width)] for _ in range(height)]
 
 def print_board(board):
-    for row in board:
-        print(''.join(['#' if cell else ' ' for cell in row]))
+    plt.imshow(board, cmap='binary')
 
 def get_neighbour_count(board, x, y):
     count = 0
@@ -36,10 +34,12 @@ def update_board(board):
 
 def game_of_life(width, height, generations):
     board = create_board(width, height)
+    plt.figure()
     for _ in range(generations):
         print_board(board)
+        plt.pause(1)  # Pause pour une seconde
         board = update_board(board)
-        time.sleep(1)
-        os.system('cls' if os.name == 'nt' else 'clear')
+        plt.clf()  # Effacer la figure pour la prochaine génération
+    plt.show()
 
 game_of_life(20, 20, 50) # lance une simulation de 50 générations sur un terrain 20x20 avec initialisation aléatoire
